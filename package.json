@@ -9,5 +9,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.11.0"
+  "packageManager": "pnpm@10.11.0",
+  "devDependencies": {
+    "eslint": "^9.36.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "execa": "^9.6.0",
+    "strip-ansi": "^7.1.2",
+    "@types/vscode": "1.104.0",
+    "@vscode/vsce": "3.6.0",
+    "which": "^5.0.0"
+  }
 }
