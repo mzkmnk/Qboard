@@ -7,6 +7,10 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "watch": "tsc -w -p tsconfig.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,10 +22,13 @@
   "license": "ISC",
   "packageManager": "pnpm@10.17.0",
   "devDependencies": {
+    "@eslint/js": "9.35.0",
     "@types/node": "^22.18.5",
-    "eslint": "^9.36.0",
+    "eslint": "9.35.0",
+    "prettier": "3.6.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "typescript-eslint": "8.43.0"
   },
   "dependencies": {
     "@types/vscode": "1.104.0",

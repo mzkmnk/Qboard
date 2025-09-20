@@ -24,6 +24,7 @@ q chat --no-interactive --wrap never --resume --trust-tools=fs_read \
 ```
 
 補足:
+
 - `--wrap never` で折返しを抑制（UI整形が容易）。
 - 非対話でも、バナーやヒントが先頭に出力される場合がある（後述のフィルタで対処）。
 
@@ -31,9 +32,9 @@ q chat --no-interactive --wrap never --resume --trust-tools=fs_read \
 
 非対話モードでは、ツール実行の許可確認ができずに失敗・ハングすることがあります。以下のフローを推奨します。
 
-1) まず許可なし（または安全な読み取り系のみ）で実行。
-2) 出力のテキストからツール使用の兆候を検出し、必要な許可を UI でユーザに確認。
-3) 許可を得たら、同じ `cwd` で `--resume` と拡張した `--trust-tools` を付けて再実行。
+1. まず許可なし（または安全な読み取り系のみ）で実行。
+2. 出力のテキストからツール使用の兆候を検出し、必要な許可を UI でユーザに確認。
+3. 許可を得たら、同じ `cwd` で `--resume` と拡張した `--trust-tools` を付けて再実行。
 
 検出の目印（例）:
 
@@ -49,6 +50,7 @@ Using tool: fs_write
 ```
 
 注意:
+
 - `--trust-all-tools` は強力だが高リスク。既定は `--trust-tools` の段階的拡大を推奨。
 
 ## 出力整形（ANSI・装飾の対処）
@@ -73,7 +75,12 @@ Using tool: fs_write
 
 ```ts
 const args = [
-  'chat', '--no-interactive', '--wrap', 'never', '--resume', userPrompt,
+  'chat',
+  '--no-interactive',
+  '--wrap',
+  'never',
+  '--resume',
+  userPrompt,
   ...(trustedTools.length ? [`--trust-tools=${trustedTools.join(',')}`] : []),
 ];
 const child = spawn('q', args, { cwd });
@@ -122,4 +129,3 @@ qlog/
 ---
 
 質問や要望があれば、この方針に沿って最小PoC実装（Webview 入力欄→`q chat` 実行→出力表示）を進めます。
-
