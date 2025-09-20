@@ -1,11 +1,21 @@
 {
   "compilerOptions": {
     "module": "nodenext",
-    "target": "esnext",
-    "types": [],
+    "moduleResolution": "nodenext",
+    "target": "ES2022",
+    "lib": ["ES2023"],
+
+    "rootDir": "src",
+    "outDir": "dist",
+
+    "types": ["node", "vscode"],
+    "resolveJsonModule": true,
     "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+
+    "declaration": false,
+
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "strict": true,
@@ -13,6 +23,11 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true
   }
 }
